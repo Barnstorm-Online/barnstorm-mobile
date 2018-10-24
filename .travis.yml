@@ -7,6 +7,7 @@ matrix:
     before_script:
     - npm install -g cordova
     - cordova platform add windows
+    - cordova requirements
     script:
     - npm test
 
@@ -22,6 +23,7 @@ matrix:
     before_script:
     - npm install -g cordova
     - cordova platform add android
+    - cordova requirements
     script:
     - npm test
 
@@ -31,5 +33,6 @@ matrix:
     before_script:
     - npm install -g cordova ios-deploy
     - cordova platform add ios
+    - cordova requirements
     script:
     - npm test
