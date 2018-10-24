@@ -1,5 +1,15 @@
 matrix:
   include:
+  - language: csharp
+    os: windows
+    before_install:
+    - nvm install 8
+    before_script:
+    - npm install -g cordova
+    - cordova platform add windows
+    script:
+    - npm test
+
   - language: android
     jdk: oraclejdk8
     android:
