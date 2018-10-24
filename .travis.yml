@@ -4,8 +4,6 @@ matrix:
     language: node_js
     node_js:
     - "8"
-    before_install:
-    - nvs install 8
     before_script:
     - npm install -g cordova
     - cordova platform add windows
