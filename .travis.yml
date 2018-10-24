@@ -2,8 +2,10 @@ matrix:
   include:
   - os: windows
     language: node_js
+    node_js:
+    - "8"
     before_install:
-    - nvm install 8
+    - nvs install 8
     before_script:
     - npm install -g cordova
     - cordova platform add windows
