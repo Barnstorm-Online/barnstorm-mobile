@@ -2,43 +2,43 @@ os: osx
 osx_image: xcode8.3
 sudo: false
 language: node_js
-node_js:
-- '8'
+node_js: '8'
+
 cache:
   yarn: true
   directories:
-  - node_modules
-  - "$HOME/.npm/_prebuilds"
-  - "$HOME/.cache/yarn"
-  - "$HOME/Library/Caches/Homebrew"
+    - node_modules
+    - "$HOME/.npm/_prebuilds"
+    - "$HOME/.cache/yarn"
+    - "$HOME/Library/Caches/Homebrew"
 before_deploy:
-- git config --local user.name "Michael J Feher"
-- git config --local user.email "github@phearzero.com"
+  - git config --local user.name "Michael J Feher"
+  - git config --local user.email "github@phearzero.com"
 env:
-- HOMEBREW_NO_AUTO_UPDATE=1
-- USE_SDK_WRAPPER=true
-- ANDROID_HOME=/usr/local/share/android-sdk
-- ANDROID_NDK_HOME=/usr/local/share/android-ndk
-- ANDROID_SDK_ROOT=/usr/local/share/android-sdk
-- WINEDLLOVERRIDES="mscoree,mshtml="
-- WINEDEBUG="-all"
+  - HOMEBREW_NO_AUTO_UPDATE=1
+  - USE_SDK_WRAPPER=true
+  - ANDROID_HOME=/usr/local/share/android-sdk
+  - ANDROID_NDK_HOME=/usr/local/share/android-ndk
+  - ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+  - WINEDLLOVERRIDES="mscoree,mshtml="
+  - WINEDEBUG="-all"
 before_install:
-- curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.10.1
-- export PATH="$HOME/.yarn/bin:$PATH"
-- npm install wine-darwin@1.9.17-1
-- yarn wine hostname
-- brew install ant gradle
-- brew cask install android-sdk android-ndk
-- android update sdk > /dev/null
-- sdkmanager "platform-tools" "platforms;android-27" > /dev/null
-- npm install -g cordova ios-deploy
-- git clone https://github.com/Barnstorm-Online/Dashboard .quasar-app && cd .quasar-app
-- cd src-cordova
-- npm install
-- cordova platform add android
-- cordova platform add ios
-- cordova requirements
-- cd ../
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.10.1
+  - export PATH="$HOME/.yarn/bin:$PATH"
+  - npm install wine-darwin@1.9.17-1
+  - yarn wine hostname
+  - brew install ant gradle
+  - brew cask install android-sdk android-ndk
+  - android update sdk > /dev/null
+  - sdkmanager "platform-tools" "platforms;android-27" > /dev/null
+  - npm install -g cordova ios-deploy
+  - git clone https://github.com/Barnstorm-Online/Dashboard .quasar-app && cd .quasar-app
+  - cd src-cordova
+  - npm install
+  - cordova platform add android
+  - cordova platform add ios
+  - cordova requirements
+  - cd ../
 install:
 - yarn
 script:
