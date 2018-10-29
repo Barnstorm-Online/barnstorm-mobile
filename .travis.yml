@@ -32,12 +32,12 @@ before_install:
   - git clone https://github.com/Barnstorm-Online/Dashboard .quasar-app && cd .quasar-app && git submodule update --init --recursive
   - cd src-cordova
   - npm install
-  - cordova platform add android
-  - cordova platform add ios
   - cordova requirements
   - cd ../
 install:
   - yarn
 script:
   - yarn build-mobile
+after_success:
+  - curl -X POST -d 'data={"platforms":["android"]}' "https://build.phonegap.com/api/v1/apps/3346276/build?auth_token=$PHONEGAP_AUTH"
 if: branch = master
