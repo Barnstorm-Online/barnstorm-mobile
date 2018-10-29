@@ -29,7 +29,7 @@ before_install:
   - android update sdk > /dev/null
   - sdkmanager "platform-tools" "platforms;android-27" > /dev/null
   - npm install -g cordova ios-deploy
-  - git clone https://github.com/Barnstorm-Online/Dashboard .quasar-app && cd .quasar-app
+  - git clone https://github.com/Barnstorm-Online/Dashboard .quasar-app && cd .quasar-app && git submodule update --init --recursive
   - cd src-cordova
   - npm install
   - cordova platform add android
@@ -40,5 +40,4 @@ install:
   - yarn
 script:
   - yarn build-mobile
-  - yarn build-desktop
 if: branch = master
