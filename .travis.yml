@@ -4,13 +4,14 @@ sudo: false
 language: node_js
 node_js: '8'
 env:
-  - HOMEBREW_NO_AUTO_UPDATE=1
-  - USE_SDK_WRAPPER=true
-  - ANDROID_HOME=/usr/local/share/android-sdk
-  - ANDROID_NDK_HOME=/usr/local/share/android-ndk
-  - ANDROID_SDK_ROOT=/usr/local/share/android-sdk
-  - WINEDLLOVERRIDES="mscoree,mshtml="
-  - WINEDEBUG="-all"
+  global:
+    - HOMEBREW_NO_AUTO_UPDATE=1
+    - USE_SDK_WRAPPER=true
+    - ANDROID_HOME=/usr/local/share/android-sdk
+    - ANDROID_NDK_HOME=/usr/local/share/android-ndk
+    - ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+    - WINEDLLOVERRIDES="mscoree,mshtml="
+    - WINEDEBUG="-all"
 cache:
   yarn: true
   directories:
