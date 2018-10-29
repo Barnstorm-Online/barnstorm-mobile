@@ -32,6 +32,8 @@ before_install:
   - git clone https://github.com/Barnstorm-Online/Dashboard .quasar-app && cd .quasar-app && git submodule update --init --recursive
   - cd src-cordova
   - npm install
+  - cordova platform add android
+  - cordova platform add ios
   - cordova requirements
   - cd ../
 install:
