@@ -3,17 +3,6 @@ osx_image: xcode8.3
 sudo: false
 language: node_js
 node_js: '8'
-
-cache:
-  yarn: true
-  directories:
-    - node_modules
-    - "$HOME/.npm/_prebuilds"
-    - "$HOME/.cache/yarn"
-    - "$HOME/Library/Caches/Homebrew"
-before_deploy:
-  - git config --local user.name "Michael J Feher"
-  - git config --local user.email "github@phearzero.com"
 env:
   - HOMEBREW_NO_AUTO_UPDATE=1
   - USE_SDK_WRAPPER=true
@@ -22,6 +11,13 @@ env:
   - ANDROID_SDK_ROOT=/usr/local/share/android-sdk
   - WINEDLLOVERRIDES="mscoree,mshtml="
   - WINEDEBUG="-all"
+cache:
+  yarn: true
+  directories:
+    - node_modules
+    - "$HOME/.npm/_prebuilds"
+    - "$HOME/.cache/yarn"
+    - "$HOME/Library/Caches/Homebrew"
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.10.1
   - export PATH="$HOME/.yarn/bin:$PATH"
@@ -40,8 +36,8 @@ before_install:
   - cordova requirements
   - cd ../
 install:
-- yarn
+  - yarn
 script:
-- yarn build-mobile
-- yarn build-desktop
+  - yarn build-mobile
+  - yarn build-desktop
 if: branch = master
